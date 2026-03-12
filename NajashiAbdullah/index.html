@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najashi Abdullah | Growth Marketing Specialist</title>
+    
+    <!-- Fonts: Japanese-inspired minimalism meets refined typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Crimson+Pro:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@10/dist/framer-motion.js"></script>
+    
+    <style>
+        :root {
+            --color-ink: #1a1a1a;
+            --color-paper: #fafaf8;
+            --color-accent: #d64545;
+            --color-muted: #6b6b6b;
+            --color-border: #e8e8e5;
+            
+            --font-display: 'Sora', -apple-system, sans-serif;
+            --font-body: 'Crimson Pro', Georgia, serif;
+            
+            --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-paper);
+            color: var(--color-ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Grain texture overlay - subtle Japanese paper effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 9999;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 248, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        nav.scrolled {
+            background: rgba(250, 250, 248, 0.95);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--color-ink);
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--font-display);
+            font-size: 13px;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: color 0.3s var(--ease-smooth);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s var(--ease-spring);
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-ink);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero-label {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 24px;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--color-ink);
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 300;
+            color: var(--color-muted);
+            margin-bottom: 48px;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+        
+        .hero-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--color-muted);
+            margin-bottom: 48px;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--color-ink);
+            color: var(--color-paper);
+            border: none;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-spring);
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(214, 69, 69, 0.2);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 120px 0;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .section-header {
+            margin-bottom: 80px;
+        }
+        
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-ink);
+            letter-spacing: -0.02em;
+        }
+        
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 48px;
+        }
+        
+        .experience-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 48px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .experience-card:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-meta {
+            position: sticky;
+            top: 120px;
+            align-self: start;
+        }
+        
+        .experience-period {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-muted);
+            margin-bottom: 8px;
+        }
+        
+        .experience-company {
+            font-family: var(--font-display);
+            font-size: 14px;
+            color: var(--color-ink);
+            font-weight: 600;
+        }
+        
+        .experience-location {
+            font-size: 13px;
+            color: var(--color-muted);
+            margin-top: 4px;
+        }
+        
+        .experience-content h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-ink);
+        }
+        
+        .experience-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-content li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--color-muted);
+        }
+        
+        .experience-content li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-size: 8px;
+            top: 8px;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .skill-category {
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(214, 69, 69, 0.02), rgba(214, 69, 69, 0.05));
+            border: 1px solid var(--color-border);
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            border-color: var(--color-accent);
+        }
+        
+        .skill-category h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-ink);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            font-family: var(--font-display);
+            font-size: 12px;
+            padding: 6px 12px;
+            background: rgba(26, 26, 26, 0.05);
+            color: var(--color-muted);
+            border-radius: 2px;
+            font-weight: 500;
+        }
+        
+        /* Education & Awards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 48px;
+        }
+        
+        .info-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-ink);
+        }
+        
+        .info-card .detail {
+            font-size: 14px;
+            color: var(--color-muted);
+            margin-bottom: 4px;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 16px;
+        }
+        
+        .info-card li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--color-muted);
+        }
+        
+        .info-card li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-size: 8px;
+            top: 6px;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            font-size: 20px;
+            color: var(--color-muted);
+            margin-bottom: 48px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: 1px solid var(--color-border);
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-ink);
+            text-decoration: none;
+            transition: all 0.3s var(--ease-spring);
+        }
+        
+        .contact-link:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+        
+        footer p {
+            font-family: var(--font-display);
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .mobile-menu-button span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-ink);
+            margin: 5px 0;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .experience-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .experience-meta {
+                position: relative;
+                top: 0;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                padding-top: 100px;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s var(--ease-smooth) forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Stagger delays */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        
+        function App() {
+            const [scrolled, setScrolled] = useState(false);
+            
+            useEffect(() => {
+                const handleScroll = () => {
+                    setScrolled(window.scrollY > 50);
+                };
+                
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+            
+            const scrollToSection = (id) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+            
+            const experiences = [
+                {
+                    period: "Sep 2025 – Present",
+                    company: "OKC Thunder",
+                    location: "Oklahoma City, OK",
+                    role: "College Ambassador",
+                    subtitle: "Social Media Marketer & Fan Engagement",
+                    responsibilities: [
+                        "Executed campus-focused social media campaigns to increase student game attendance and brand engagement",
+                        "Developed activation strategies to drive awareness and ticket interest among Gen Z audiences",
+                        "Increased campus digital engagement through targeted content, event promotion, and peer-to-peer advocacy",
+                        "Tracked campaign performance metrics and adjusted content strategy based on engagement data"
+                    ]
+                },
+                {
+                    period: "Jul 2023 – May 2024",
+                    company: "Afroverse54",
+                    location: "Dallas, TX",
+                    role: "Growth Marketing & Content Strategist",
+                    responsibilities: [
+                        "Managed full content calendar and distribution strategy across social platforms",
+                        "Produced and edited podcast episodes, short-form videos, and promotional content",
+                        "Designed high-converting thumbnails and optimized posting schedule for engagement growth",
+                        "Partnered with 97.9 The Beat to expand audience reach and increase brand visibility",
+                        "Improved content consistency and engagement through structured publishing cadence"
+                    ]
+                },
+                {
+                    period: "Summer 2023",
+                    company: "Nike × Hibbett Sports × Sydney Carter",
+                    location: "Dallas, TX",
+                    role: "Campaign Marketing",
+                    responsibilities: [
+                        "Directed and edited campaign visuals for Nike Women's 'Support Her Sole' initiative",
+                        "Contributed creative assets aligned with brand storytelling and community engagement goals",
+                        "Supported digital campaign amplification through social-first content"
+                    ]
+                },
+                {
+                    period: "Summer 2023",
+                    company: "Ivy Winfrey × Dallas Wings",
+                    location: "Dallas, TX",
+                    role: "Sports Marketing Video Editor",
+                    responsibilities: [
+                        "Produced promotional sports culture video series blending hip-hop and women's basketball branding",
+                        "Developed storytelling-driven content to expand cross-cultural audience engagement"
+                    ]
+                },
+                {
+                    period: "2022 – 2024",
+                    company: "Dallas ISD",
+                    location: "Dallas, TX",
+                    role: "Athlete Leadership Intern",
+                    responsibilities: [
+                        "Selected for leadership training program based on collaboration and strategic thinking",
+                        "Facilitated peer engagement initiatives and supported group performance development"
+                    ]
+                }
+            ];
+            
+            const skills = [
+                {
+                    category: "Growth Marketing",
+                    items: ["Social Media Acquisition", "Audience Expansion", "Campaign Development", "Brand Awareness", "Community Building"]
+                },
+                {
+                    category: "Content Strategy",
+                    items: ["Digital Content Optimization", "Cross-Platform Distribution", "Content Calendar Management", "Thumbnail Design"]
+                },
+                {
+                    category: "Analytics & Data",
+                    items: ["Performance Analytics", "KPI Tracking", "Data-Driven Iteration", "Engagement Metrics", "A/B Testing"]
+                },
+                {
+                    category: "Production",
+                    items: ["Video Editing", "Podcast Production", "Short-Form Content", "Campaign Visuals", "Creative Direction"]
+                }
+            ];
+            
+            return (
+                <>
+                    <nav className={scrolled ? 'scrolled' : ''}>
+                        <div className="container">
+                            <div className="nav-content">
+                                <div className="nav-logo">Najashi Abdullah</div>
+                                <ul className="nav-links">
+                                    <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a></li>
+                                    <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>Experience</a></li>
+                                    <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a></li>
+                                    <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>Education</a></li>
+                                    <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a></li>
+                                </ul>
+                                <button className="mobile-menu-button">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                    
+                    <main>
+                        {/* Hero Section */}
+                        <section className="hero">
+                            <div className="container">
+                                <div className="hero-content">
+                                    <div className="hero-label fade-in">Growth Marketing Specialist</div>
+                                    <h1 className="hero-title fade-in delay-1">
+                                        Najashi<br/>Abdullah
+                                    </h1>
+                                    <p className="hero-subtitle fade-in delay-2">
+                                        Data-driven marketer specializing in social media acquisition, audience engagement, and digital content strategy.
+                                    </p>
+                                    <div className="hero-location fade-in delay-3">
+                                        <span>📍</span>
+                                        <span>Norman, Oklahoma</span>
+                                    </div>
+                                    <a href="#contact" className="cta-button fade-in delay-4" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
+                                        Let's Connect
+                                        <span>→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        {/* About Section */}
+                        <section id="about">
+                            <div className="container">
+                                <div className="section-header">
+                                    <div className="section-label">Who I Am</div>
+                                    <h2 className="section-title">Building campus-level brand presence and scaling engagement through data-driven campaigns</h2>
+                                </div>
+                                <div style={{ maxWidth: '800px', fontSize: '18px', color: 'var(--color-muted)', lineHeight: '1.8' }}>
+                                    <p style={{ marginBottom: '24px' }}>
+                                        I'm an energetic growth marketer currently studying Creative Media Productions and Digital Marketing at the University of Oklahoma's Gaylord College. My work combines analytical rigor with creative storytelling to drive measurable audience growth.
+                                    </p>
+                                    <p style={{ marginBottom: '24px' }}>
+                                        As a Social Media College Ambassador for the OKC Thunder, I execute campus-focused campaigns that connect Gen Z audiences with live sports experiences. Previously, I've shaped content strategies for brands like Nike, Afroverse54, and the Dallas Wings—always with a focus on performance metrics and authentic engagement.
+                                    </p>
+                                    <p>
+                                        I believe the best marketing feels invisible—it meets people where they are, speaks their language, and creates value before asking for attention. That philosophy drives everything I build.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        {/* Experience Section */}
+                        <section id="experience">
+                            <div className="container">
+                                <div className="section-header">
+                                    <div className="section-label">What I've Done</div>
+                                    <h2 className="section-title">Experience</h2>
+                                </div>
+                                <div className="experience-grid">
+                                    {experiences.map((exp, index) => (
+                                        <div key={index} className="experience-card">
+                                            <div className="experience-meta">
+                                                <div className="experience-period">{exp.period}</div>
+                                                <div className="experience-company">{exp.company}</div>
+                                                <div className="experience-location">{exp.location}</div>
+                                            </div>
+                                            <div className="experience-content">
+                                                <h3>{exp.role}</h3>
+                                                {exp.subtitle && <p style={{ color: 'var(--color-muted)', marginBottom: '16px', fontSize: '15px' }}>{exp.subtitle}</p>}
+                                                <ul>
+                                                    {exp.responsibilities.map((resp, i) => (
+                                                        <li key={i}>{resp}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+                        
+                        {/* Skills Section */}
+                        <section id="skills">
+                            <div className="container">
+                                <div className="section-header">
+                                    <div className="section-label">What I Bring</div>
+                                    <h2 className="section-title">Skills & Expertise</h2>
+                                </div>
+                                <div className="skills-grid">
+                                    {skills.map((skill, index) => (
+                                        <div key={index} className="skill-category">
+                                            <h3>{skill.category}</h3>
+                                            <div className="skill-tags">
+                                                {skill.items.map((item, i) => (
+                                                    <span key={i} className="skill-tag">{item}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+                        
+                        {/* Education & Awards */}
+                        <section id="education">
+                            <div className="container">
+                                <div className="section-header">
+                                    <div className="section-label">Background</div>
+                                    <h2 className="section-title">Education & Recognition</h2>
+                                </div>
+                                <div className="info-grid">
+                                    <div className="info-card">
+                                        <h3>University of Oklahoma</h3>
+                                        <div className="detail">Gaylord College of Journalism and Mass Communication</div>
+                                        <div className="detail">Creative Media Productions, Digital Marketing</div>
+                                        <div className="detail">GPA: 3.18 | Expected May 2028</div>
+                                        <ul>
+                                            <li>Student Advocate - Gaylord Dean's Leadership Class of 2028</li>
+                                            <li>Social Media College Ambassador - OKC Thunder</li>
+                                        </ul>
+                                    </div>
+                                    <div className="info-card">
+                                        <h3>Honors & Awards</h3>
+                                        <ul>
+                                            <li>2nd Place – Harvard Business School App-a-Thon (2023)</li>
+                                            <li>National Society of Collegiate Scholars (2023)</li>
+                                            <li>2× Captain for high school sports team (2022-2024)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        {/* Contact Section */}
+                        <section id="contact">
+                            <div className="container">
+                                <div className="contact-content">
+                                    <div className="section-label">Get in Touch</div>
+                                    <h2 className="section-title" style={{ marginBottom: '24px' }}>Let's build something together</h2>
+                                    <p>Always open to discussing growth marketing opportunities, creative collaborations, or just talking strategy.</p>
+                                    <div className="contact-links">
+                                        <a href="mailto:Najashi.abdullah@gmail.com" className="contact-link">
+                                            <span>✉</span> Email
+                                        </a>
+                                        <a href="https://linkedin.com/in/najashi-abdullah" target="_blank" rel="noopener noreferrer" className="contact-link">
+                                            <span>in</span> LinkedIn
+                                        </a>
+                                        <a href="tel:650-441-779" className="contact-link">
+                                            <span>📞</span> Call
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    
+                    <footer>
+                        <div className="container">
+                            <p>© {new Date().getFullYear()} Najashi Abdullah. Designed with intention.</p>
+                        </div>
+                    </footer>
+                </>
+            );
+        }
+        
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
