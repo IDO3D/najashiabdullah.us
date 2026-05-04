@@ -209,6 +209,38 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
 .parr{font-size:1rem;color:var(--mid);transform:rotate(45deg);transition:transform .25s,color .2s}
 .proj:hover .parr{transform:rotate(0);color:var(--gold2)}
 
+/* ═════════════════ DESIGNS GALLERY ═════════════════ */
+.dhd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3rem;padding-bottom:1.4rem;border-bottom:1px solid var(--rule)}
+.dfilt{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3.5rem}
+.dfilt button{font-family:var(--D);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:var(--mid);border:1px solid var(--rule);padding:.65rem 1.2rem;cursor:none;transition:all .25s;display:inline-flex;align-items:center;gap:.55rem}
+.dfilt button:hover{border-color:rgba(200,169,110,.45);color:var(--cream)}
+.dfilt button.on{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.dfilt button .cnt{opacity:.55;font-weight:400}
+.dfilt button.on .cnt{opacity:.7}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;transition:opacity .3s}
+.dgrid.swap{opacity:.25}
+.dcard{position:relative;aspect-ratio:4/5;background:linear-gradient(145deg,#1a1710,#0e0c08);overflow:hidden;cursor:none;border:1px solid var(--rule);transition:border-color .3s}
+.dcard:hover{border-color:rgba(200,169,110,.45)}
+.dcard.hide{display:none}
+.dcard img{width:100%;height:100%;object-fit:cover;filter:saturate(.92);transition:transform 1s cubic-bezier(.16,1,.3,1),filter .5s}
+.dcard:hover img{transform:scale(1.04);filter:saturate(1.05)}
+.dcard .cc{z-index:3}
+.dcard-tag{position:absolute;top:14px;right:14px;z-index:3;font-family:var(--D);font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;background:rgba(10,9,6,.78);backdrop-filter:blur(6px);color:var(--gold);padding:.28rem .58rem;border:1px solid rgba(200,169,110,.2);opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
+.dcard:hover .dcard-tag{opacity:1;transform:translateY(0)}
+.dcard-overlay{position:absolute;inset:auto 0 0 0;z-index:2;padding:1.2rem 1.2rem 1rem;background:linear-gradient(to top,rgba(10,9,6,.95) 0%,rgba(10,9,6,.7) 60%,transparent 100%);transform:translateY(101%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.dcard:hover .dcard-overlay{transform:translateY(0)}
+.dcard-meta{display:flex;justify-content:space-between;font-family:var(--D);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-bottom:.4rem}
+.dcard-meta .yr{color:var(--gold)}
+.dcard h4{font-family:var(--D);font-size:1.3rem;font-weight:400;letter-spacing:-.005em;color:var(--cream);line-height:1.05}
+.dcard h4 em{font-family:var(--S);font-style:italic;color:var(--gold)}
+.dcard-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(200,169,110,.45),transparent);animation:sc 3.5s ease-in-out infinite;z-index:2;opacity:0}
+.dcard:hover .dcard-scan{opacity:1}
+
+/* designs modal hero — image-driven */
+.m-d-hero{width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,#1a1710,#0e0c08);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;max-height:62vh}
+.m-d-hero img{width:100%;height:100%;object-fit:contain;background:#0e0c08}
+.m-d-cc{z-index:3}
+
 /* experience */
 .tl{position:relative;margin-top:4rem}
 .tl::before{content:'';position:absolute;left:130px;top:0;bottom:0;width:1px;background:var(--rule)}
@@ -270,6 +302,7 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
 .m-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.3rem}
 .m-tag{font-family:var(--D);font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid rgba(200,169,110,.35);color:var(--gold)}
 .m-title{font-family:var(--D);font-size:clamp(1.8rem,4vw,3.5rem);font-weight:300;line-height:.9;color:var(--cream);margin-bottom:.3rem}
+.m-title em{font-family:var(--S);font-style:italic;color:var(--gold)}
 .m-year{font-family:var(--D);font-size:.58rem;letter-spacing:.2em;color:var(--mid);margin-bottom:1.8rem}
 .m-role{background:rgba(200,169,110,.06);border-left:2px solid var(--gold);padding:1.2rem 1.5rem;margin-bottom:2rem}
 .m-rl{font-family:var(--D);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
@@ -290,6 +323,10 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
 .btn-gold:hover{background:var(--gold2)}
 .btn-out{font-family:var(--D);font-size:.8rem;letter-spacing:.12em;background:transparent;color:var(--cream);border:1px solid var(--rule);padding:.82rem 1.8rem;text-decoration:none;cursor:none;transition:border-color .2s}
 .btn-out:hover{border-color:var(--gold)}
+.m-nav{display:flex;justify-content:space-between;gap:1rem;padding-top:2rem;border-top:1px solid var(--rule);margin-top:2rem}
+.m-nav button{flex:1;font-family:var(--D);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:var(--mid);border:1px solid var(--rule);padding:1rem;cursor:none;transition:all .2s}
+.m-nav button:hover{border-color:rgba(200,169,110,.45);color:var(--cream)}
+.m-nav button:disabled{opacity:.3;pointer-events:none}
 
 /* reveals */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
@@ -309,9 +346,15 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
   .ct-mid{grid-template-columns:1fr}.ct-socs{align-items:flex-start}
   #mPan{width:100vw}#storyProg{display:none}
   #cardFrame{width:320px;height:194px}
+  .dgrid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .dhd{flex-direction:column;align-items:flex-start;gap:.6rem}
+  .navr{gap:1.4rem}
+  .navr a{font-size:.58rem}
 }
 @media(max-width:600px){
   .sg{grid-template-columns:1fr}#cardFrame{width:280px;height:170px}
+  .dgrid{grid-template-columns:1fr;gap:.8rem}
+  .navr li:nth-child(n+5){display:none}
 }
 </style>
 </head>
@@ -319,7 +362,7 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
 <div id="c1"></div><div id="c2"></div>
 <div id="mOv"></div>
 <div id="mPan">
-  <div class="m-top"><span class="m-lbl">Campaign Detail</span><button class="m-cls" id="mCls">✕</button></div>
+  <div class="m-top"><span class="m-lbl" id="mLbl">Campaign Detail</span><button class="m-cls" id="mCls">✕</button></div>
   <div id="mCont"></div>
 </div>
 
@@ -328,6 +371,7 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
   <ul class="navr">
     <li><a href="#s-about">About</a></li>
     <li><a href="#s-work">Campaigns</a></li>
+    <li><a href="#s-designs">Designs</a></li>
     <li><a href="#s-exp">Experience</a></li>
     <li><a href="#s-contact">Contact</a></li>
   </ul>
@@ -353,8 +397,8 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
 <div id="portfolio">
 
 <div class="mbar"><div class="mtrack">
-  <s>GROWTH MARKETING</s><s class="dot">✦</s><s>SOCIAL STRATEGY</s><s class="dot">✦</s><s>BRAND CAMPAIGNS</s><s class="dot">✦</s><s>CONTENT STRATEGY</s><s class="dot">✦</s><s>AUDIENCE BUILDING</s><s class="dot">✦</s><s>DIGITAL STORYTELLING</s><s class="dot">✦</s>
-  <s>GROWTH MARKETING</s><s class="dot">✦</s><s>SOCIAL STRATEGY</s><s class="dot">✦</s><s>BRAND CAMPAIGNS</s><s class="dot">✦</s><s>CONTENT STRATEGY</s><s class="dot">✦</s><s>AUDIENCE BUILDING</s><s class="dot">✦</s><s>DIGITAL STORYTELLING</s><s class="dot">✦</s>
+  <s>GROWTH MARKETING</s><s class="dot">✦</s><s>SOCIAL STRATEGY</s><s class="dot">✦</s><s>BRAND CAMPAIGNS</s><s class="dot">✦</s><s>GRAPHIC DESIGN</s><s class="dot">✦</s><s>SPORTS GRAPHICS</s><s class="dot">✦</s><s>CONTENT STRATEGY</s><s class="dot">✦</s>
+  <s>GROWTH MARKETING</s><s class="dot">✦</s><s>SOCIAL STRATEGY</s><s class="dot">✦</s><s>BRAND CAMPAIGNS</s><s class="dot">✦</s><s>GRAPHIC DESIGN</s><s class="dot">✦</s><s>SPORTS GRAPHICS</s><s class="dot">✦</s><s>CONTENT STRATEGY</s><s class="dot">✦</s>
 </div></div>
 
 <!-- ═══════════════════════════════
@@ -465,8 +509,26 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
   </div>
 </section>
 
+<!-- ═══════════════════════════════
+     DESIGNS — Graphic Design Gallery
+═══════════════════════════════ -->
+<section class="sec" id="s-designs" style="background:var(--bg2)">
+  <div class="sec-lbl rv">Graphic Design</div>
+  <div class="dhd rv d1"><h2 class="bigH">Selected<br/><em>Designs</em></h2><span class="wcnt"><span id="dCount">22</span> Pieces</span></div>
+
+  <div class="dfilt rv d2" id="dFilt">
+    <button class="on" data-f="all">All <span class="cnt">22</span></button>
+    <button data-f="campaign">Campaigns <span class="cnt" id="cnt-campaign">0</span></button>
+    <button data-f="edit">Player Edits <span class="cnt" id="cnt-edit">0</span></button>
+    <button data-f="stats">Stats <span class="cnt" id="cnt-stats">0</span></button>
+    <button data-f="study">Studies <span class="cnt" id="cnt-study">0</span></button>
+  </div>
+
+  <div class="dgrid rv d3" id="dGrid"></div>
+</section>
+
 <!-- EXPERIENCE -->
-<section class="sec" id="s-exp" style="background:var(--bg2)">
+<section class="sec" id="s-exp" style="background:var(--bg)">
   <div class="sec-lbl rv">Experience</div>
   <h2 class="bigH rv d1">Career<br/><em>Timeline</em></h2>
   <div class="tl">
@@ -478,13 +540,13 @@ nav.solid{background:rgba(10,9,6,.97);border-bottom:1px solid var(--rule)}
 </section>
 
 <!-- SKILLS -->
-<section class="sec" id="s-skills" style="background:var(--bg)">
+<section class="sec" id="s-skills" style="background:var(--bg2)">
   <div class="sec-lbl rv">Expertise</div>
   <h2 class="bigH rv d1">What I<br/><em>Do Best</em></h2>
   <div class="sg">
     <div class="sgc rv" data-n="01"><div class="sgt">Platforms</div><ul class="sgl"><li>TikTok Strategy & Growth</li><li>Instagram & Reels</li><li>YouTube & Shorts</li><li>Twitter/X Strategy</li><li>LinkedIn B2B</li><li>Emerging Platforms</li></ul></div>
     <div class="sgc rv d1" data-n="02"><div class="sgt">Strategy</div><ul class="sgl"><li>Audience Growth</li><li>Campaign Planning</li><li>Content Calendars</li><li>Brand Positioning</li><li>Partnership Strategy</li><li>Launch Strategy</li></ul></div>
-    <div class="sgc rv d2" data-n="03"><div class="sgt">Production</div><ul class="sgl"><li>Video Editing</li><li>Podcast Production</li><li>Copywriting</li><li>Thumbnail Design</li><li>Social Content</li><li>Multi-format</li></ul></div>
+    <div class="sgc rv d2" data-n="03"><div class="sgt">Production & Design</div><ul class="sgl"><li>Photoshop / Illustrator</li><li>Sports Graphics</li><li>Video Editing</li><li>Podcast Production</li><li>Copywriting</li><li>Multi-format</li></ul></div>
   </div>
 </section>
 
@@ -520,7 +582,7 @@ const c1=document.getElementById('c1'),c2=document.getElementById('c2');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px'});
 (function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;c2.style.left=rx+'px';c2.style.top=ry+'px';requestAnimationFrame(loop)})();
-function bindHov(){document.querySelectorAll('a,button,.proj,.sgc,.ast').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));});}
+function bindHov(){document.querySelectorAll('a,button,.proj,.sgc,.ast,.dcard,.dfilt button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));});}
 bindHov();
 
 /* ── NAV ── */
@@ -547,20 +609,12 @@ window.addEventListener('wheel',skipCard,{passive:true,once:true});
 function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight+100)el.classList.add('on');});}
 
 /* ════════════════════════════════════════════════
-   THREE.JS SCROLLYTELLING
-   ─ Loads baseball.glb, macbook.glb, iphone.glb, camera.glb
-   ─ Auto-normalises scale via bounding box
-   ─ Scroll drives chapter transitions with crossfade
-   ─ Mouse adds parallax tilt
-   ─ Screen overlays fade in on MacBook + iPhone chapters
+   THREE.JS SCROLLYTELLING — unchanged from your existing site
 ════════════════════════════════════════════════ */
 (function(){
-
   const canvas = document.getElementById('storyCanvas');
   const pin    = document.getElementById('story-pin');
   const W=()=>pin.clientWidth, H=()=>pin.clientHeight;
-
-  /* Renderer */
   const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(W(), H());
@@ -571,55 +625,34 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.15;
-
-  /* Scene + Camera */
   const scene  = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, W()/H(), 0.01, 200);
   camera.position.set(0, 0.3, 5);
-
-  /* Lighting */
   scene.add(new THREE.AmbientLight(0x1a1408, 3));
   const key = new THREE.DirectionalLight(0xf5dfa0, 5.5);
   key.position.set(4, 7, 5); key.castShadow=true; key.shadow.mapSize.set(1024,1024); scene.add(key);
   const fill = new THREE.DirectionalLight(0x304060, 2); fill.position.set(-5,-1,3); scene.add(fill);
   const rim  = new THREE.DirectionalLight(0xc8a030, 2.5); rim.position.set(-1,-5,-3); scene.add(rim);
   const spot = new THREE.SpotLight(0xe8cc8e, 3.5, 25, Math.PI/7, 0.5); spot.position.set(0,9,2); scene.add(spot);
-
-  /* DRACO + GLTF */
   const draco = new THREE.DRACOLoader();
   draco.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
   const gltf  = new THREE.GLTFLoader();
   gltf.setDRACOLoader(draco);
-
-  /* ── Model configs ──
-     scale: multiplier AFTER auto-normalisation (1.0 = fills ~1.5 units)
-     rotY:  initial Y rotation in radians
-     camPos/camTgt: camera per chapter
-     screenEl: 'mac' | 'phone' | null
-     spinSpeed: radians/sec idle auto-rotation
-  */
   const CFG = [
     { file:'baseball.glb', scale:1.0,  offsetY:0,    rotY:0,    camPos:new THREE.Vector3(0,0.1,3.8), camTgt:new THREE.Vector3(0,0,0),   screenEl:null,    spinSpeed:0.38 },
     { file:'macbook.glb',  scale:1.1,  offsetY:-0.2, rotY:-0.3, camPos:new THREE.Vector3(0.4,0.4,4), camTgt:new THREE.Vector3(0,0.1,0), screenEl:'mac',   spinSpeed:0.1  },
     { file:'iphone.glb',   scale:1.0,  offsetY:0,    rotY:0.2,  camPos:new THREE.Vector3(0.3,0,3.8), camTgt:new THREE.Vector3(0,0,0),   screenEl:'phone', spinSpeed:0.16 },
     { file:'camera.glb',   scale:1.05, offsetY:0,    rotY:-0.4, camPos:new THREE.Vector3(0.5,0.2,4), camTgt:new THREE.Vector3(0,0.1,0), screenEl:null,    spinSpeed:0.2  },
   ];
-
   const N = CFG.length;
   const groups = new Array(N).fill(null);
   let loaded = 0, ready = false, activeIdx = 0;
-
-  /* Camera smooth state */
   const cpCur = camera.position.clone();
   const ctCur = new THREE.Vector3(0,0,0);
   let cpTgt = CFG[0].camPos.clone();
   let ctTgt = CFG[0].camTgt.clone();
-
-  /* Mouse */
   let mdx=0,mdy=0,sdx=0,sdy=0;
   document.addEventListener('mousemove',e=>{mdx=(e.clientX/window.innerWidth-.5)*2;mdy=(e.clientY/window.innerHeight-.5)*2;});
-
-  /* Tween system */
   const tweens=new Map();
   function tween(obj,prop,to,dur,cb){
     const k=obj.uuid+'_'+prop, from=obj.userData[prop]??1;
@@ -645,15 +678,12 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
       }
     });
   }
-
-  /* Placeholder geometry per slot */
   const PH_GEO = [
     new THREE.SphereGeometry(0.9,48,48),
     new THREE.BoxGeometry(2,1.25,1),
     new THREE.BoxGeometry(0.72,1.55,0.1),
     new THREE.BoxGeometry(1.5,1.0,0.65),
   ];
-
   function makePlaceholder(idx){
     const g=new THREE.Group();
     const mat=new THREE.MeshStandardMaterial({color:0xc8a96e,roughness:.35,metalness:.55});
@@ -662,50 +692,38 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
     g.add(new THREE.Mesh(PH_GEO[idx],wf));
     return g;
   }
-
   const ldLabel=document.getElementById('ldLabel');
   const ldCount=document.getElementById('ldCount');
   const ldEl=document.getElementById('storyLoader');
-
   function onLoad(idx, scene3d){
     loaded++;
     ldCount.textContent=`${loaded} / ${N}`;
-
     const cfg=CFG[idx];
     const grp=new THREE.Group();
-
-    /* Auto-normalise: scale so longest axis = 1.5 units */
     const box=new THREE.Box3().setFromObject(scene3d);
     const sz=new THREE.Vector3(); box.getSize(sz);
     const biggest=Math.max(sz.x,sz.y,sz.z);
     const ns=(biggest>0)?(1.5/biggest)*cfg.scale : cfg.scale;
     scene3d.scale.setScalar(ns);
-
-    /* Centre */
     box.setFromObject(scene3d);
     const ctr=new THREE.Vector3(); box.getCenter(ctr);
     scene3d.position.sub(ctr);
     scene3d.position.y+=cfg.offsetY;
     scene3d.rotation.y=cfg.rotY;
-
     scene3d.traverse(c=>{if(c.isMesh){c.castShadow=true;c.receiveShadow=true;if(c.material){const ms=Array.isArray(c.material)?c.material:[c.material];ms.forEach(m=>m.envMapIntensity=1.3);}}});
-
     grp.add(scene3d);
     grp.visible=false;
     grp.userData.opacity=0;
     groups[idx]=grp;
     scene.add(grp);
-
     ldLabel.textContent=`Loaded ${cfg.file.replace('.glb','')} (${loaded}/${N})`;
     checkReady();
   }
-
   function onErr(idx, err){
     loaded++;
     ldCount.textContent=`${loaded} / ${N}`;
     ldLabel.textContent=`⚠ ${CFG[idx].file} not found — using placeholder`;
     console.warn(`[NA] ${CFG[idx].file} not loaded. Place GLB in same folder as HTML.`, err);
-
     const grp=new THREE.Group();
     const ph=makePlaceholder(idx);
     ph.rotation.y=CFG[idx].rotY;
@@ -716,7 +734,6 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
     scene.add(grp);
     checkReady();
   }
-
   function checkReady(){
     if(loaded<N)return;
     ready=true;
@@ -724,18 +741,12 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
     setTimeout(()=>ldEl.style.display='none',900);
     activateChapter(0);
   }
-
-  /* Load all */
   CFG.forEach((cfg,i)=>{
     gltf.load(cfg.file, g=>onLoad(i,g.scene), xhr=>{if(xhr.total>0)ldLabel.textContent=`Loading ${cfg.file}… ${Math.round(xhr.loaded/xhr.total*100)}%`;}, err=>onErr(i,err));
   });
-
-  /* Screen overlay refs */
   const macEl  =document.getElementById('mac-screen');
   const phoneEl=document.getElementById('phone-screen');
-
   function activateChapter(idx){
-    /* crossfade models */
     groups.forEach((g,i)=>{
       if(!g)return;
       if(i===idx){
@@ -745,32 +756,22 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
         tween(g,'opacity',0,0.45,()=>g.visible=false);
       }
     });
-
-    /* camera target */
     cpTgt=CFG[idx].camPos.clone();
     ctTgt=CFG[idx].camTgt.clone();
-
-    /* screen overlays */
     macEl.classList.remove('show');
     phoneEl.classList.remove('show');
     if(CFG[idx].screenEl==='mac')  setTimeout(()=>macEl.classList.add('show'),700);
     if(CFG[idx].screenEl==='phone')setTimeout(()=>phoneEl.classList.add('show'),700);
-
-    /* chapter text */
     document.querySelectorAll('.chapter').forEach((c,i)=>c.classList.toggle('active',i===idx));
     document.querySelectorAll('.ch-num-bg').forEach((b,i)=>b.classList.toggle('active',i===idx));
     document.querySelectorAll('.sp-dot').forEach((d,i)=>d.classList.toggle('on',i===idx));
-
     activeIdx=idx;
   }
-
-  /* Scroll → chapter */
   const wrap=document.getElementById('story-wrap');
   function stProg(){
     const r=wrap.getBoundingClientRect();
     return Math.max(0,Math.min(1,-r.top/(wrap.offsetHeight-window.innerHeight)));
   }
-
   let stTick=false;
   window.addEventListener('scroll',()=>{
     if(!stTick){requestAnimationFrame(()=>{
@@ -782,8 +783,6 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
       stTick=false;
     });stTick=true;}
   },{passive:true});
-
-  /* Dot nav */
   document.querySelectorAll('.sp-dot').forEach(d=>{
     d.addEventListener('click',()=>{
       const i=parseInt(d.dataset.i);
@@ -791,44 +790,118 @@ function trigReveal(){document.querySelectorAll('.rv').forEach(el=>{if(el.getBou
       window.scrollTo({top:wrap.offsetTop+(i/(N-1))*total,behavior:'smooth'});
     });
   });
-
-  /* Render loop */
   let t0=null;
   function render(ts){
     if(!t0)t0=ts;
     const t=(ts-t0)*.001;
     tickTweens();
-
     sdx+=(mdx-sdx)*.04; sdy+=(mdy-sdy)*.04;
     cpCur.lerp(cpTgt,.032); ctCur.lerp(ctTgt,.032);
     camera.position.copy(cpCur);
     camera.position.x+=sdx*.15; camera.position.y+=sdy*-.1;
     camera.lookAt(ctCur);
-
     groups.forEach((g,i)=>{
       if(!g||!g.visible)return;
       g.rotation.y = t*CFG[i].spinSpeed + sdx*.28;
       g.rotation.x = Math.sin(t*.45+i)*.05 + sdy*-.12;
       g.position.y = Math.sin(t*.7+i*1.3)*.07;
     });
-
     renderer.render(scene,camera);
     requestAnimationFrame(render);
   }
   requestAnimationFrame(render);
-
   window.addEventListener('resize',()=>{
     const w=W(),h=H();
     camera.aspect=w/h; camera.updateProjectionMatrix(); renderer.setSize(w,h);
   });
-
 })();
 
 /* ── SCROLL REVEALS ── */
 const rvO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');rvO.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>rvO.observe(el));
 
-/* ── MODAL ── */
+/* ════════════════════════════════════════════════
+   GRAPHIC DESIGN GALLERY DATA
+════════════════════════════════════════════════ */
+const DESIGNS=[
+  {id:1,n:18,title:'Shai Gilgeous-Alexander',sub:'All-Star Vote · 2026',cat:'campaign',catL:'Campaign',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator','Lightroom'],desc:'Campaign artwork built around SGA\'s NBA All-Star vote push. Layered typography in OKC blue and red anchors a dual-portrait composition — the headband-clad action shot mirrored against a contemplative second exposure. The vertical VOTE lockup acts as architecture for the whole piece.',img:'designs/work-18.jpg'},
+  {id:2,n:2,title:'Thunder Up',sub:'Jalen Williams × Isaiah Hartenstein',cat:'campaign',catL:'Campaign',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Editorial-style team graphic celebrating two Thunder players against fragmented OKC city imagery. Mixed-media collage with oversized jersey numbers in shadowed 3D treatment, framing players in a city-scape composition.',img:'designs/work-02.jpg'},
+  {id:3,n:16,title:'Chet Holmgren',sub:'Player Feature',cat:'edit',catL:'Player Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Lightroom'],desc:'Player feature edit with cinematic color grading and custom typographic treatment. Background atmosphere built to amplify the figure without competing for attention.',img:'designs/work-16.jpg'},
+  {id:4,n:3,title:'Alex Caruso',sub:'Player Feature',cat:'edit',catL:'Player Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Lightroom'],desc:'Single-player feature graphic with high-contrast composition. Color and crop chosen to emphasize intensity and on-court presence.',img:'designs/work-03.jpg'},
+  {id:5,n:19,title:'Jalen Williams',sub:'Player Feature',cat:'edit',catL:'Player Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Editorial player edit centered on Jalen Williams. Composition balances figure and graphic structure with a tight color system pulled from team identity.',img:'designs/work-19.jpg'},
+  {id:6,n:17,title:'Isaiah Hartenstein',sub:'Player Feature',cat:'edit',catL:'Player Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Feature edit emphasizing Hartenstein\'s frontcourt presence. Graphic system built for readability across feed and story formats.',img:'designs/work-17.jpg'},
+  {id:7,n:20,title:'Lou Dort',sub:'Player Feature',cat:'edit',catL:'Player Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Lightroom'],desc:'Edit centered on Lou Dort\'s defensive identity. Color and lighting tuned to project intensity and grit.',img:'designs/work-20.jpg'},
+  {id:8,n:22,title:'Shai · Stats Graphic',sub:'Performance Card',cat:'stats',catL:'Stats Graphic',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator','Figma'],desc:'Stat graphic distilling a performance into a single readable composition. Hierarchy designed for fast scanning on the feed: hero number, supporting stats, identity at the edges.',img:'designs/work-22.jpg'},
+  {id:9,n:4,title:'Group Composition 41',sub:'Team Edit',cat:'edit',catL:'Group Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Multi-figure composition. Studio-style cutouts arranged to create rhythm and visual hierarchy across the group.',img:'designs/work-04.jpg'},
+  {id:10,n:12,title:'Group Composition 62',sub:'Team Edit',cat:'edit',catL:'Group Edit',year:'2026',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Group composition exploring scale variation and overlap. Players sized intentionally to guide the eye through the composition.',img:'designs/work-12.jpg'},
+  {id:11,n:1,title:'Frame Study 04',sub:'Series · Foundation',cat:'study',catL:'Frame Study',year:'2024',fmt:'4:5 · Instagram',tools:['Photoshop'],desc:'Early frame study from the foundational series. Experiments with grid, color, and figure positioning that shaped the later work.',img:'designs/work-01.jpg'},
+  {id:12,n:5,title:'Frame Study 06',sub:'Series',cat:'study',catL:'Frame Study',year:'2024',fmt:'4:5 · Instagram',tools:['Photoshop'],desc:'Series exploration in figure-and-type relationships. Working through how typographic elements interact with photographic content.',img:'designs/work-05.jpg'},
+  {id:13,n:6,title:'Frame Study 07',sub:'Series',cat:'study',catL:'Frame Study',year:'2024',fmt:'4:5 · Instagram',tools:['Photoshop'],desc:'Continuation of the Frame series — testing color blocking and figure isolation as primary composition tools.',img:'designs/work-06.jpg'},
+  {id:14,n:7,title:'Frame Study 08',sub:'Series',cat:'study',catL:'Frame Study',year:'2024',fmt:'4:5 · Instagram',tools:['Photoshop'],desc:'Mid-series study refining color treatment and figure cutout technique.',img:'designs/work-07.jpg'},
+  {id:15,n:8,title:'Frame Study 10',sub:'Series',cat:'study',catL:'Frame Study',year:'2024',fmt:'4:5 · Instagram',tools:['Photoshop'],desc:'Series study introducing more aggressive typographic structure as compositional anchor.',img:'designs/work-08.jpg'},
+  {id:16,n:10,title:'Frame Study 12',sub:'Series',cat:'study',catL:'Frame Study',year:'2024',fmt:'4:5 · Instagram',tools:['Photoshop'],desc:'Frame Study 12 — pushing the relationship between large-scale type and isolated photographic figure.',img:'designs/work-10.jpg'},
+  {id:17,n:11,title:'Frame Study 14',sub:'Series',cat:'study',catL:'Frame Study',year:'2025',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Later study showing the maturation of the Frame approach: confident hierarchy, color discipline, refined typographic systems.',img:'designs/work-11.jpg'},
+  {id:18,n:13,title:'Frame Study 15',sub:'Series',cat:'study',catL:'Frame Study',year:'2025',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Frame 15 — composition study with refined editorial sensibility.',img:'designs/work-13.jpg'},
+  {id:19,n:14,title:'Frame Study 16',sub:'Series',cat:'study',catL:'Frame Study',year:'2025',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Frame 16 study — testing rhythm of negative space against weighted typographic elements.',img:'designs/work-14.jpg'},
+  {id:20,n:15,title:'Frame Study 17',sub:'Series',cat:'study',catL:'Frame Study',year:'2025',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Frame 17 — continuing the visual language exploration with refined color and composition control.',img:'designs/work-15.jpg'},
+  {id:21,n:21,title:'Frame Study 25',sub:'Series · Recent',cat:'study',catL:'Frame Study',year:'2025',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Frame 25 — recent study showing full integration of all earlier learnings into a confident editorial style.',img:'designs/work-21.jpg'},
+  {id:22,n:9,title:'Final Composition 02',sub:'Final Piece',cat:'study',catL:'Final',year:'2025',fmt:'4:5 · Instagram',tools:['Photoshop','Illustrator'],desc:'Final composition piece — distilled outcome of the Frame Study process. Resolved system applied with intent.',img:'designs/work-09.jpg'},
+];
+
+/* ── RENDER GALLERY ── */
+const dGrid=document.getElementById('dGrid');
+function renderDesigns(){
+  dGrid.innerHTML=DESIGNS.map((d,i)=>{
+    const titleHtml=d.title.replace(/(Alexander|Hartenstein|Holmgren|Williams|Caruso|Dort|Up|Graphic|Composition|Study|\d+)$/, '<em>$1</em>');
+    return `<button class="dcard" data-cat="${d.cat}" data-id="${d.id}">
+      <div class="cc tl"></div><div class="cc tr"></div><div class="cc bl"></div><div class="cc br"></div>
+      <span class="dcard-tag">${d.catL}</span>
+      <img src="${d.img}" alt="${d.title}" loading="lazy"/>
+      <div class="dcard-scan"></div>
+      <div class="dcard-overlay">
+        <div class="dcard-meta"><span>${String(i+1).padStart(2,'0')} / ${String(DESIGNS.length).padStart(2,'0')}</span><span class="yr">${d.year}</span></div>
+        <h4>${titleHtml}</h4>
+      </div>
+    </button>`;
+  }).join('');
+  dGrid.querySelectorAll('.dcard').forEach(el=>el.addEventListener('click',()=>openDesign(parseInt(el.dataset.id))));
+  bindHov();
+}
+renderDesigns();
+
+/* counts */
+['campaign','edit','stats','study'].forEach(c=>{
+  const cnt=DESIGNS.filter(d=>d.cat===c).length;
+  const el=document.getElementById('cnt-'+c);
+  if(el)el.textContent=cnt;
+});
+
+/* filter */
+let curFilt='all';
+document.querySelectorAll('.dfilt button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const f=b.dataset.f;
+    if(f===curFilt)return;
+    document.querySelectorAll('.dfilt button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    curFilt=f;
+    dGrid.classList.add('swap');
+    setTimeout(()=>{
+      let shown=0;
+      dGrid.querySelectorAll('.dcard').forEach(c=>{
+        const m=f==='all'||c.dataset.cat===f;
+        c.classList.toggle('hide',!m);
+        if(m)shown++;
+      });
+      document.getElementById('dCount').textContent=shown;
+      dGrid.classList.remove('swap');
+    },220);
+  });
+});
+
+/* ════════════════════════════════════════════════
+   MODAL — handles both Campaigns and Designs
+════════════════════════════════════════════════ */
 const PX=[
   {n:'01',title:'OKC Thunder',sub:'Campus Ambassador Campaign',year:'2025',tags:['Social','Campus','Gen Z','Community','Analytics'],role:'Campaign Strategy / Content Production / Community Building / Analytics',desc:`Leading campus social media campaigns for the OKC Thunder to drive Gen Z attendance and engagement. Full lifecycle: strategy, content production, community management, performance analytics.`,stats:[{v:'Gen Z',k:'Target'},{v:'OKC',k:'Market'},{v:'2025',k:'Ongoing'}],deliv:['Campaign strategy','Social content production','Community management','Performance analytics','Event activation','Audience growth reporting']},
   {n:'02',title:'Afroverse54',sub:'Growth & Content Strategy',year:'2024',tags:['TikTok','Instagram','Podcast','Video','97.9 The Beat'],role:'Growth Marketing / Content Strategy / Podcast Production / Video Editing',desc:`Managed full content calendar across social platforms, produced podcast and short-form video, designed high-converting thumbnails. Partnered with 97.9 The Beat for cross-audience expansion.`,stats:[{v:'Multi',k:'Platform'},{v:'97.9',k:'Partner'},{v:'Dallas',k:'Market'}],deliv:['Content calendar','Podcast production','Short-form video','Thumbnail design','97.9 partnership','Analytics reporting']},
@@ -836,19 +909,53 @@ const PX=[
   {n:'04',title:'Personal Brand',sub:'Audience Growth — Zero to Scale',year:'2023',tags:['TikTok','Instagram','Growth','Organic'],role:'Content Creator / Growth Strategist / Brand Architect',desc:`Built a personal brand from zero across TikTok and Instagram using systematic content strategy and platform algorithm mastery. 8M+ account reach, 100% organic.`,stats:[{v:'8M+',k:'Reached'},{v:'0→',k:'Cold start'},{v:'Organic',k:'100%'}],deliv:['Content strategy','Platform content','Algorithm optimisation','Community building','Analytics & iteration','Growth playbook']},
   {n:'05',title:'OU Campus',sub:'Digital Media & Brand Building',year:'2023',tags:['Strategy','Campus Media','Emerging Platforms'],role:'Growth Lead / Media Producer / Platform Experimenter',desc:`Led growth strategy for campus initiatives at the University of Oklahoma while studying Creative Media Productions and Digital Marketing.`,stats:[{v:'OU',k:'Norman, OK'},{v:'2020',k:'Start'},{v:'Media',k:'Focus'}],deliv:['Campus growth strategy','Platform experimentation','Multimedia production','Personal brand dev','Digital marketing','Strategy playbook']},
 ];
+
+const mLbl=document.getElementById('mLbl');
+
 function openModal(i){
+  mLbl.textContent='Campaign Detail';
   const p=PX[i];
   document.getElementById('mCont').innerHTML=`<div class="m-hero"><div class="m-hero-n">0${i+1}</div><div class="m-badge">${p.sub} — ${p.year}</div><div class="m-scan"></div></div><div class="m-body"><div class="m-tags">${p.tags.map(t=>`<span class="m-tag">${t}</span>`).join('')}</div><h2 class="m-title">${p.title}</h2><div class="m-year">— ${p.year}</div><div class="m-role"><div class="m-rl">My Role</div><div class="m-rt">${p.role}</div></div><p class="m-desc">${p.desc}</p><div class="m-stats">${p.stats.map(s=>`<div class="m-stat"><div class="m-sv">${s.v}</div><div class="m-sk">${s.k}</div></div>`).join('')}</div><div class="m-slbl">Deliverables</div><ul class="m-deliv">${p.deliv.map(d=>`<li>${d}</li>`).join('')}</ul><div class="m-cta"><a href="#s-contact" class="btn-gold" onclick="closeModal()">Let's work together</a><a href="#" class="btn-out" onclick="closeModal();return false">← Back</a></div></div>`;
   document.getElementById('mPan').scrollTop=0;
   document.getElementById('mOv').classList.add('on');
   document.getElementById('mPan').classList.add('on');
   document.body.style.overflow='hidden';
+  bindHov();
 }
+
+let curDesignIdx=0;
+function openDesign(id){
+  mLbl.textContent='Design Detail';
+  curDesignIdx=DESIGNS.findIndex(d=>d.id===id);
+  const d=DESIGNS[curDesignIdx];
+  const titleHtml=d.title.replace(/(Alexander|Hartenstein|Holmgren|Williams|Caruso|Dort|Up|Graphic|Composition|Study|\d+)$/, '<em>$1</em>');
+  document.getElementById('mCont').innerHTML=`<div class="m-d-hero"><div class="cc tl m-d-cc"></div><div class="cc tr m-d-cc"></div><div class="cc bl m-d-cc"></div><div class="cc br m-d-cc"></div><div class="m-badge">${d.catL} — ${d.year}</div><img src="${d.img}" alt="${d.title}"/><div class="m-scan"></div></div><div class="m-body"><div class="m-tags">${d.tools.map(t=>`<span class="m-tag">${t}</span>`).join('')}</div><h2 class="m-title">${titleHtml}</h2><div class="m-year">— ${d.sub}</div><div class="m-role"><div class="m-rl">Format</div><div class="m-rt">${d.fmt}</div></div><p class="m-desc">${d.desc}</p><div class="m-stats"><div class="m-stat"><div class="m-sv">${d.year}</div><div class="m-sk">Year</div></div><div class="m-stat"><div class="m-sv">${d.catL.split(' ')[0]}</div><div class="m-sk">Type</div></div><div class="m-stat"><div class="m-sv">${String(curDesignIdx+1).padStart(2,'0')}/${String(DESIGNS.length).padStart(2,'0')}</div><div class="m-sk">Index</div></div></div><div class="m-slbl">Tools Used</div><ul class="m-deliv">${d.tools.map(t=>`<li>${t}</li>`).join('')}</ul><div class="m-nav"><button id="dPrev">← Previous</button><button id="dNext">Next →</button></div><div class="m-cta" style="margin-top:1.4rem"><a href="#s-contact" class="btn-gold" onclick="closeModal()">Commission a piece</a></div></div>`;
+  document.getElementById('mPan').scrollTop=0;
+  document.getElementById('mOv').classList.add('on');
+  document.getElementById('mPan').classList.add('on');
+  document.body.style.overflow='hidden';
+  document.getElementById('dPrev').addEventListener('click',()=>navDesign(-1));
+  document.getElementById('dNext').addEventListener('click',()=>navDesign(1));
+  bindHov();
+}
+function navDesign(dir){
+  let next=curDesignIdx+dir;
+  if(next<0)next=DESIGNS.length-1;
+  if(next>=DESIGNS.length)next=0;
+  openDesign(DESIGNS[next].id);
+}
+
 function closeModal(){document.getElementById('mOv').classList.remove('on');document.getElementById('mPan').classList.remove('on');document.body.style.overflow='';}
-window.openModal=openModal;window.closeModal=closeModal;
+window.openModal=openModal;window.openDesign=openDesign;window.closeModal=closeModal;
 document.getElementById('mCls').addEventListener('click',closeModal);
 document.getElementById('mOv').addEventListener('click',closeModal);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeModal();
+  if(document.getElementById('mPan').classList.contains('on')&&mLbl.textContent==='Design Detail'){
+    if(e.key==='ArrowLeft')navDesign(-1);
+    if(e.key==='ArrowRight')navDesign(1);
+  }
+});
 document.querySelectorAll('.proj').forEach(r=>r.addEventListener('click',()=>openModal(parseInt(r.dataset.p))));
 </script>
 </body>
